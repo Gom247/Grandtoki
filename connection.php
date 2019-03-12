@@ -110,7 +110,7 @@ class Connection
 
 	public function TambahBarang($kode_barang, $nama_barang, $jenis_barang, $produk_barang, $harga_barang)
 	{
-		$sql = "INSERT INTO barang(kode_barang, nama_barang, jenis_barang, produk_barang, harga_barang) VALUES (:kode_barang, nama_barang, jenis_barang, produk_barang, harga_barang)";
+		$sql = "INSERT INTO barang(kode_barang, nama_barang, jenis_barang, produk_barang, harga_barang) VALUES (:kode_barang, :nama_barang, :jenis_barang, :produk_barang, :harga_barang)";
 		$data = $this->conn->prepare($sql);
 		$data->bindParam(':kode_barang', $kode_barang);
 		$data->bindParam(':nama_barang', $nama_barang);
