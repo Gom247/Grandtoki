@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.gom247.grandtoki.MainActivity">
+    tools:context="com.example.gom247.grandtoki.DashBoardActivity">
+
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
@@ -17,6 +18,5 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/navigation" />
-
 
 </android.support.constraint.ConstraintLayout>
