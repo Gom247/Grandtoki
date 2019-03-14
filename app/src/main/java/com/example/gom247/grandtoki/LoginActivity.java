@@ -76,6 +76,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 String error = response.body().getError();
                 String message = response.body().getMessage();
+                progress.dismiss();
 
                 if (error.equals("false")) {
                     Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
