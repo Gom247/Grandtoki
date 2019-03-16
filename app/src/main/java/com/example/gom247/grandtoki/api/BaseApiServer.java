@@ -18,4 +18,13 @@ public interface BaseApiServer {
     Call<ResponAdapter> Login(@Field("email") String email,
                                @Field("password") String password);
 
+    @FormUrlEncoded
+    @POST("regristrasi_user.php")
+    Call<ResponAdapter> SignUp(@Field("email") String email,
+                              @Field("password") String password,
+                               @Field("photo") String photo,
+                               @Field("nama") String nama,
+                               @Field("alamat") String alamat,
+                               @Field("notlp") String notlp);
+
 }
