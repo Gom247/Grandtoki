@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.ngAccount:
                     startActivity(new Intent(context, AccountActivity.class));
                     return true;
+
             }
             return false;
         }

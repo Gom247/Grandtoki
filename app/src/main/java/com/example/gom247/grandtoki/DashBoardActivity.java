@@ -29,7 +29,7 @@ public class DashBoardActivity extends AppCompatActivity {
                     startActivity(new Intent(context, MainActivity.class));
                     return true;
                 case R.id.ngAccount:
-                    startActivity(new Intent(context, AccountActivity.class));
+                    startActivity(new Intent(context, Account_2Activity.class));
                     return true;
             }
             return false;
