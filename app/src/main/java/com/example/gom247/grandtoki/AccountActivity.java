@@ -53,7 +53,7 @@ public class AccountActivity extends AppCompatActivity implements NavigationView
                 return true;
 
             case R.id.ngBarang:
-
+                startActivity(new Intent(context, BarangActivity.class));
                 return true;
 
             case R.id.ngLogout:
