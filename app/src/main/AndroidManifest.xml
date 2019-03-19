@@ -28,7 +28,8 @@
             android:name=".AccountActivity"
             android:theme="@style/AppTheme.Noaction" />
         <activity android:name=".LihatUserActivity" />
-        <activity android:name=".UpdateUserActivity"></activity>
+        <activity android:name=".UpdateUserActivity" />
+        <activity android:name=".BarangActivity"></activity>
     </application>
 
 </manifest>
