@@ -32,18 +32,26 @@ public class AccountActivity extends AppCompatActivity implements NavigationView
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
 
-        if (id == R.id.ngAccount){
+        switch (item.getItemId()) {
 
-        } else if (id == R.id.ngBarang) {
+            case R.id.ngAccount:
 
-        } else if (id == R.id.ngLogout){
-            sharedPrefManager.saveBoolean(SharedPrefManager.SP_Sudah_Login, false);
-            startActivity(new Intent(AccountActivity.this, DashBoardActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-            finish();
+                return true;
+
+            case R.id.ngBarang:
+
+                return true;
+
+            case R.id.ngLogout:
+
+                sharedPrefManager.saveBoolean(SharedPrefManager.SP_Sudah_Login, false);
+                startActivity(new Intent(AccountActivity.this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                finish();
+
+                break;
         }
 
-        return true;
+        return false;
     }
 }
