@@ -8,6 +8,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -19,29 +20,18 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
-    @BindView(R.id.navigation)
-    BottomNavigationView navigation;
+    @BindView(R.id.edEmail)
+    EditText edEmail;
+    @BindView(R.id.edPassword)
+    EditText edPassword;
+    @BindView(R.id.btLogin)
+    Button btLogin;
+    @BindView(R.id.btRegister)
+    Button btRegister;
 
+    BaseApiServer apiServer;
     Context context;
-
-    private BottomNavigationView.OnNavigationItemSelectedListener navigationSelector = new BottomNavigationView.OnNavigationItemSelectedListener() {
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.ngHome:
-                    startActivity(new Intent(context, MainActivity.class));
-                    return true;
-                case R.id.ngKategori:
-                    startActivity(new Intent(context, MainActivity.class));
-                    return true;
-                case R.id.ngAccount:
-                    startActivity(new Intent(context, AccountActivity.class));
-                    return true;
-
-            }
-            return false;
-        }
-    };
+    ProgressDialog progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +40,29 @@ public class MainActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
         context = this;
+        apiServer = UtilsApi.getApiService();
 
-        navigation.setOnNavigationItemSelectedListener(navigationSelector);
+        btLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ProsesLogin();
+            }
+        });
+
+        btRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ProsesRegister();
+            }
+        });
+
+    }
+
+    private void ProsesRegister() {
+        startActivity(new Intent(context, ));
+    }
+
+    private void ProsesLogin() {
 
     }
 }
