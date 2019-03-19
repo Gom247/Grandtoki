@@ -83,7 +83,11 @@ public class MainActivity extends AppCompatActivity {
                 progress.dismiss();
 
                 if (error.equals("false")) {
+
                     Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(context, DashBoardActivity.class));
+                    finish();
+
                 } else if (error.equals("true")) {
                     Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
                     edPassword.setText("");

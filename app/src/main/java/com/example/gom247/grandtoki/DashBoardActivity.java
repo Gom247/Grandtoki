@@ -11,31 +11,32 @@ import android.view.MenuItem;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class DashboardActivity extends AppCompatActivity {
+public class DashBoardActivity extends AppCompatActivity {
 
     @BindView(R.id.navigation)
     BottomNavigationView navigation;
 
     Context context;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
+        setContentView(R.layout.activity_dash_board);
 
         ButterKnife.bind(this);
         context = this;
-        navigation.setOnNavigationItemSelectedListener(OnNavigationSelector);
 
+        navigation.setOnNavigationItemSelectedListener(OnNavigation);
     }
 
-    private BottomNavigationView.OnNavigationItemSelectedListener OnNavigationSelector = new BottomNavigationView.OnNavigationItemSelectedListener() {
+    private BottomNavigationView.OnNavigationItemSelectedListener OnNavigation = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
             switch (item.getItemId()) {
                 case R.id.ngHome:
-                    startActivity(new Intent(context, MainActivity.class));
+                   startActivity(new Intent(context, MainActivity.class));
                     return true;
                 case R.id.ngKategori:
                     startActivity(new Intent(context, MainActivity.class));
@@ -44,6 +45,7 @@ public class DashboardActivity extends AppCompatActivity {
                     startActivity(new Intent(context, MainActivity.class));
                     return true;
             }
+
             return false;
         }
     };
