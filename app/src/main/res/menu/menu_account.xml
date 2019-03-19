@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/ngAccount"
+        android:icon="@drawable/ic_account_circle_white_24dp"
+        android:title="account"/>
+
+    <item
+        android:id="@+id/ngBarang"
+        android:icon="@drawable/ic_shop_white_24dp"
+        android:title="Barang"
+        />
+
+    <item
+        android:id="@+id/ngLogout"
+        android:icon="@drawable/ic_exit_to_app_black_24dp"
+        android:title="Keluar"
+        />
+
+</menu>

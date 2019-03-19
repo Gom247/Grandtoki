@@ -3,6 +3,8 @@ package com.example.gom247.grandtoki;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +16,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.gom247.grandtoki.adapter.ResponAdapter;
+import com.example.gom247.grandtoki.adapter.SharedPrefManager;
 import com.example.gom247.grandtoki.api.BaseApiServer;
 import com.example.gom247.grandtoki.api.UtilsApi;
 
@@ -37,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
     BaseApiServer apiServer;
     Context context;
     ProgressDialog progress;
+    SharedPrefManager sharedPrefManager;
+
+    public static final String Key_Email = "email";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +52,12 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         context = this;
         apiServer = UtilsApi.getApiService();
+        sharedPrefManager = new SharedPrefManager(this);
+
+        if (sharedPrefManager.getSPSudahLogin()) {
+            startActivity(new Intent(MainActivity.this, DashBoardActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+            finish();
+        }
 
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void ProsesLogin() {
 
-        String email = edEmail.getText().toString();
+        final String email = edEmail.getText().toString();
         String password = edPassword.getText().toString();
 
         progress = ProgressDialog.show(context, null, "Loading..", false, true);
@@ -84,8 +96,15 @@ public class MainActivity extends AppCompatActivity {
 
                 if (error.equals("false")) {
 
+                    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString(Key_Email, email);
+                    editor.apply();
+
+                    sharedPrefManager.saveBoolean(SharedPrefManager.SP_Sudah_Login, true);
+
                     Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(context, DashBoardActivity.class));
+                    startActivity(new Intent(context, DashBoardActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                     finish();
 
                 } else if (error.equals("true")) {
