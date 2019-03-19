@@ -24,10 +24,11 @@
         <activity
             android:name=".DashBoardActivity"
             android:theme="@style/AppTheme.Noaction" />
-        <activity android:name=".AccountActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.Noaction"/>
-        <activity android:name=".NavHaederActivity"></activity>
+        <activity
+            android:name=".AccountActivity"
+            android:theme="@style/AppTheme.Noaction" />
+        <activity android:name=".LihatUserActivity" />
+        <activity android:name=".UpdateUserActivity"></activity>
     </application>
 
 </manifest>
