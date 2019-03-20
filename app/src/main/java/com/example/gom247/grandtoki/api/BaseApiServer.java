@@ -40,4 +40,12 @@ public interface BaseApiServer {
                                    @Field("alamat") String alamat,
                                    @Field("notlp") String notlp);
 
+    @FormUrlEncoded
+    @POST("input_barang.php")
+    Call<ResponAdapter> InputBarang(@Field("kode_barang") String kode_barang,
+                                    @Field("nama_barang") String nama_barang,
+                                    @Field("jenis_barang") String jenis_barang,
+                                    @Field("produk_barang") String produk_barang,
+                                    @Field("harga_barang") String harga_barang);
+
 }
