@@ -1,6 +1,7 @@
 package com.example.gom247.grandtoki;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -58,7 +59,7 @@ public class BarangViewAdapter extends RecyclerView.Adapter<BarangViewAdapter.Vi
         return respone_barang.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         @BindView(R.id.txtKodeBarang)
         TextView txtKodeBarang;
@@ -75,6 +76,25 @@ public class BarangViewAdapter extends RecyclerView.Adapter<BarangViewAdapter.Vi
             super(itemView);
 
             ButterKnife.bind(this, itemView);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+
+            String kode_barang = txtKodeBarang.getText().toString();
+            String nama_barang = txtNamaBarang.getText().toString();
+            String jenis_barang = txtJenisBarang.getText().toString();
+            String produk_barang = txtProdukBarang.getText().toString();
+            String harga_barang = txtHargaBarang.getText().toString();
+
+            Intent intent = new Intent(context, UpdateBarangActivity.class);
+            intent.putExtra("kode_barang", kode_barang);
+            intent.putExtra("nama_barang", nama_barang);
+            intent.putExtra("jenis_barang", jenis_barang);
+            intent.putExtra("produk_barang", produk_barang);
+            intent.putExtra("harga_barang", harga_barang);
+            context.startActivity(intent);
         }
     }
 }

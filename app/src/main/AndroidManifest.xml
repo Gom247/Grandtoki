@@ -30,7 +30,8 @@
         <activity android:name=".LihatUserActivity" />
         <activity android:name=".UpdateUserActivity" />
         <activity android:name=".BarangActivity" />
-        <activity android:name=".LihatBarangActivity"></activity>
+        <activity android:name=".LihatBarangActivity" />
+        <activity android:name=".UpdateBarangActivity"></activity>
     </application>
 
 </manifest>

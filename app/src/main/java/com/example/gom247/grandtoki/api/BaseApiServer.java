@@ -52,4 +52,12 @@ public interface BaseApiServer {
     @GET("lihat_barang.php")
     Call<ResponAdapter> LihatBarang();
 
+    @FormUrlEncoded
+    @POST("update_barang.php")
+    Call<ResponAdapter> UpdateBarang(@Field("kode_barang") String kode_barang,
+                                    @Field("nama_barang") String nama_barang,
+                                    @Field("jenis_barang") String jenis_barang,
+                                    @Field("produk_barang") String produk_barang,
+                                    @Field("harga_barang") String harga_barang);
+
 }
