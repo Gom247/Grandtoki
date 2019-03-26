@@ -1,6 +1,7 @@
 package com.example.gom247.grandtoki;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -52,7 +53,7 @@ public class KategoriViewAdapter extends RecyclerView.Adapter<KategoriViewAdapte
         return list.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         @BindView(R.id.txtMenu)
         TextView txtMenu;
@@ -60,6 +61,18 @@ public class KategoriViewAdapter extends RecyclerView.Adapter<KategoriViewAdapte
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+
+            String jenis_barang = txtMenu.getText().toString();
+
+            Intent intent = new Intent(context, LihatBarangKategoriActivity.class);
+            intent.putExtra("jenis_barang", jenis_barang);
+            context.startActivity(intent);
+
         }
     }
 }

@@ -32,7 +32,8 @@
         <activity android:name=".BarangActivity" />
         <activity android:name=".LihatBarangActivity" />
         <activity android:name=".UpdateBarangActivity" />
-        <activity android:name=".KategoriActivity"></activity>
+        <activity android:name=".KategoriActivity" />
+        <activity android:name=".LihatBarangKategoriActivity"></activity>
     </application>
 
 </manifest>

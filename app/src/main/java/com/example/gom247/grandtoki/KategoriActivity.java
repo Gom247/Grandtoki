@@ -7,7 +7,9 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.gom247.grandtoki.adapter.KategoriAdapter;
 import com.example.gom247.grandtoki.adapter.ResponAdapter;
@@ -70,12 +72,21 @@ public class KategoriActivity extends AppCompatActivity {
         apiServer.Menu().enqueue(new Callback<ResponAdapter>() {
             @Override
             public void onResponse(Call<ResponAdapter> call, Response<ResponAdapter> response) {
-                
+
+                String error = response.body().getError();
+                pgLoading.setVisibility(View.GONE);
+
+                if (error.equals("1")) {
+                    list = response.body().getList();
+                    viewAdapter = new KategoriViewAdapter(context, list);
+                    rvMenu.setAdapter(viewAdapter);
+                }
             }
 
             @Override
             public void onFailure(Call<ResponAdapter> call, Throwable t) {
-
+                pgLoading.setVisibility(View.GONE);
+                Toast.makeText(context, "Koneksi Loss", Toast.LENGTH_SHORT).show();
             }
         });
 

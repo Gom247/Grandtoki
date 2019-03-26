@@ -12,6 +12,7 @@ public class ResponAdapter {
     private String error;
     private List<BarangAdapter> respone_barang;
     private List<KategoriAdapter> list;
+    private List<BarangAdapter> data_produk;
 
     public String getMessage() {
         return message;
@@ -35,5 +36,21 @@ public class ResponAdapter {
 
     public void setRespone_barang(List<BarangAdapter> respone_barang) {
         this.respone_barang = respone_barang;
+    }
+
+    public List<KategoriAdapter> getList() {
+        return list;
+    }
+
+    public void setList(List<KategoriAdapter> list) {
+        this.list = list;
+    }
+
+    public List<BarangAdapter> getData_produk() {
+        return data_produk;
+    }
+
+    public void setData_produk(List<BarangAdapter> data_produk) {
+        this.data_produk = data_produk;
     }
 }
