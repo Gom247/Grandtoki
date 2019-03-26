@@ -2,6 +2,7 @@ package com.example.gom247.grandtoki;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -33,6 +34,8 @@ public class BarangActivity extends AppCompatActivity {
     EditText edHargaBarang;
     @BindView(R.id.btSimpan)
     Button btSimpan;
+    @BindView(R.id.btLihat)
+    Button btLihat;
 
     BaseApiServer apiServer;
     Context context;
@@ -55,6 +58,17 @@ public class BarangActivity extends AppCompatActivity {
                 ProsesInputBarang();
             }
         });
+
+        btLihat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ProsesLihatBarang();
+            }
+        });
+    }
+
+    private void ProsesLihatBarang() {
+        startActivity(new Intent(context, LihatBarangActivity.class));
     }
 
     private void ProsesInputBarang() {

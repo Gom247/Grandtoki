@@ -6,6 +6,7 @@ import com.example.gom247.grandtoki.adapter.UserAdapter;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 /**
@@ -47,5 +48,8 @@ public interface BaseApiServer {
                                     @Field("jenis_barang") String jenis_barang,
                                     @Field("produk_barang") String produk_barang,
                                     @Field("harga_barang") String harga_barang);
+
+    @GET("lihat_barang.php")
+    Call<ResponAdapter> LihatBarang();
 
 }
