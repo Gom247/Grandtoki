@@ -15,8 +15,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 	}
 
 	echo ($menu)?
-	json_encode(array("value" => 1, "list" => $list)):
-	json_encode(array("value" => 2, "list" => "gagal"));
+	json_encode(array("error" => 1, "list" => $list)):
+	json_encode(array("error" => 2, "list" => "gagal"));
 	
 } else {
 	$respone["error"] = true;

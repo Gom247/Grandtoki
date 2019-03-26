@@ -60,4 +60,7 @@ public interface BaseApiServer {
                                     @Field("produk_barang") String produk_barang,
                                     @Field("harga_barang") String harga_barang);
 
+    @GET("menu.php")
+    Call<ResponAdapter> Menu();
+
 }

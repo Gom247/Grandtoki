@@ -11,6 +11,7 @@ public class ResponAdapter {
     private String message;
     private String error;
     private List<BarangAdapter> respone_barang;
+    private List<KategoriAdapter> list;
 
     public String getMessage() {
         return message;
