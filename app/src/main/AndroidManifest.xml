@@ -23,7 +23,7 @@
         <activity android:name=".SignUpActivity" />
         <activity
             android:name=".DashBoardActivity"
-            android:theme="@style/AppTheme.Noaction" />
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".AccountActivity"
             android:theme="@style/AppTheme.Noaction" />
@@ -33,7 +33,7 @@
         <activity android:name=".LihatBarangActivity" />
         <activity android:name=".UpdateBarangActivity" />
         <activity android:name=".KategoriActivity" />
-        <activity android:name=".LihatBarangKategoriActivity"></activity>
+        <activity android:name=".LihatBarangKategoriActivity" />
     </application>
 
 </manifest>

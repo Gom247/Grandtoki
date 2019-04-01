@@ -67,4 +67,8 @@ public interface BaseApiServer {
     @POST("lihat_produk.php")
     Call<ResponAdapter> LihatJenisBarang(@Field("jenis_barang") String jenis_barang);
 
+    @FormUrlEncoded
+    @POST("cari_barang.php")
+    Call<ResponAdapter> Search(@Field("search") String search);
+
 }
