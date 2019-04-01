@@ -180,11 +180,23 @@ class Connection
 	public function DeleteBarang($kode_barang)
 	{
 		$sql = "DELETE FROM barang WHERE kode_barang = :kode_barang";
-		$data = $this->conn->prepare($data);
+		$data = $this->conn->prepare($sql);
 		$data->bindParam(':kode_barang', $kode_barang);
 		$barang = $data->execute();
 
 		return $barang;
+	}
+
+	public function CariBarang($search)
+	{
+		$sql = "SELECT * FROM barang WHERE nama_barang LIKE '%$search%' ORDER BY nama_barang ASC";
+		$data = $this->conn->prepare($sql);
+		
+		$data->execute();
+		$barang = $data->fetchAll();
+
+		return $barang;
+
 	}
 }
 
